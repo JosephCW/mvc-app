@@ -1,13 +1,98 @@
 [
   {
-    "_id": 99,
-    "email": "dcase@nwmissouri.edu",
-    "given": "Denise",
-    "family": "Case",
-    "city": "Maryville",
-    "state": "MO",
-    "zip": 64468,
-    "country": "USA",
-    "URL": "https://www.nwmissouri.edu/csis/directory/case.htm"
+    "_id": 1,
+    "email": "1@nwmissouri.edu",
+    "given": "name1",
+    "family": "name1family",
+    "salary": 100000,
+    "github": "https://www.github.com/name1"
+  },
+  {
+    "_id": 2,
+    "email": "2@nwmissouri.edu",
+    "given": "name2",
+    "family": "name2family",
+    "salary": 200000,
+    "github": "https://www.github.com/name2"
+  },
+  {
+    "_id": 3,
+    "email": "3@nwmissouri.edu",
+    "given": "name3",
+    "family": "name3family",
+    "salary": 300000,
+    "github": "https://www.github.com/name3"
+  },
+  {
+    "_id": 4,
+    "email": "4@nwmissouri.edu",
+    "given": "name4",
+    "family": "name4family",
+    "salary": 400000,
+    "github": "https://www.github.com/name4"
+  },
+  {
+    "_id": 5,
+    "email": "5@nwmissouri.edu",
+    "given": "name5",
+    "family": "name5family",
+    "salary": 500000,
+    "github": "https://www.github.com/name5"
+  },
+  {
+    "_id": 6,
+    "email": "6@nwmissouri.edu",
+    "given": "name6",
+    "family": "name6family",
+    "salary": 600000,
+    "github": "https://www.github.com/name6"
+  },
+  {
+    "_id": 7,
+    "email": "7@nwmissouri.edu",
+    "given": "name7",
+    "family": "name7family",
+    "salary": 700000,
+    "github": "https://www.github.com/name7"
+  },
+  {
+    "_id": 8,
+    "email": "8@nwmissouri.edu",
+    "given": "name8",
+    "family": "name8family",
+    "salary": 800000,
+    "github": "https://www.github.com/name8"
+  },
+  {
+    "_id": 9,
+    "email": "9@nwmissouri.edu",
+    "given": "name9",
+    "family": "name9family",
+    "salary": 900000,
+    "github": "https://www.github.com/name9"
+  },
+  {
+    "_id": 10,
+    "email": "10@nwmissouri.edu",
+    "given": "name10",
+    "family": "name10family",
+    "salary": 1000000,
+    "github": "https://www.github.com/name10"
+  },
+  {
+    "_id": 11,
+    "email": "11@nwmissouri.edu",
+    "given": "name11",
+    "family": "name11family",
+    "salary": 1100000,
+    "github": "https://www.github.com/name11"
+  },
+  {
+    "_id": 12,
+    "email": "12@nwmissouri.edu",
+    "given": "name12",
+    "family": "name12family",
+    "salary": 1200000,
+    "github": "https://www.github.com/name12"
   }
 ]
