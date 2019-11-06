@@ -1,0 +1,92 @@
+[
+    {
+        "_id" : 1,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 563,
+        "Name" : "Developing Web Apps and Services",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 2,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 520,
+        "Name" : "Web Mining",
+        "inSpring" : true,
+        "inSummer" : true,
+        "inFall" : false
+    },
+    {
+        "_id" : 3,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 242,
+        "Name" : "Data Structures",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 4,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 141,
+        "Name" : "Programming I",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 5,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 241,
+        "Name" : "Programming II",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 6,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 349,
+        "Name" : "Survey of Algorithms",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : false
+    },
+    {
+        "_id" : 7,
+        "SchoolNumber" : 44,
+        "CourseNumber" : 460,
+        "Name" : "Database Systems",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 8,
+        "SchoolNumber" : 17,
+        "CourseNumber" : 117,
+        "Name" : "Discrete Math",
+        "inSpring" : true,
+        "inSummer" : true,
+        "inFall" : true
+    },
+    {
+        "_id" : 9,
+        "SchoolNumber" : 24,
+        "CourseNumber" : 116,
+        "Name" : "Chemistry II",
+        "inSpring" : true,
+        "inSummer" : false,
+        "inFall" : true
+    },
+    {
+        "_id" : 10,
+        "SchoolNumber" : 17,
+        "CourseNumber" : 316,
+        "Name" : "Linear Stat Models",
+        "inSpring" : false,
+        "inSummer" : false,
+        "inFall" : true
+    }
+]
