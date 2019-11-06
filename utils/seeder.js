@@ -18,6 +18,8 @@ module.exports = (app) => {
   db.students = new Datastore()
   db.students.loadDatabase()
 
+  db.sections = new Datastore()
+  db.sections.loadDatabase()
   // insert the sample data into our datastore
   //db.developers.insert(developerData)
   db.instructors.insert(instructorData)
@@ -28,8 +30,10 @@ module.exports = (app) => {
   //console.log(`${app.locals.developers.query.length} developers seeded`)
   app.locals.instructors = db.instructors.find(instructorData)
   app.locals.students = db.students.find(studentData)
+  app.locals.sections = db.sections.find(sectionData)
   console.log(`${app.locals.students.query.length} studentss seeded`)
   console.log(`${app.locals.instructors.query.length} instructors seeded`)
+  console.log(`${app.locals.sections.query.length} sections seeded`)
 
   console.log('END Data Seeder. Sample data read and verified.')
 }
