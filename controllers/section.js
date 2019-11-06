@@ -1,22 +1,22 @@
 /**
-*  Developer controller
-*  Handles requests related to developer resources.
+*  Section controller
+*  Handles requests related to section resources.
 *
-* @author Denise Case <dcase@nwmissouri.edu>
+*@author Connor Beshears <connorbeshears@gmail.com>
 *
 */
 const express = require('express')
 const api = express.Router()
 // const Model = require('../models/developer.js')
 const find = require('lodash.find')
-const notfoundstring = 'Could not find instructor with id='
+const notfoundstring = 'Could not find section with id='
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
 // GET all JSON
 api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const data = req.app.locals.instructors.query
+  const data = req.app.locals.sections.query
   res.send(JSON.stringify(data))
 })
 
@@ -24,7 +24,7 @@ api.get('/findall', (req, res) => {
 api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const id = parseInt(req.params.id)
-  const data = req.app.locals.instructors.query
+  const data = req.app.locals.sections.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring + id) }
   res.send(JSON.stringify(item))

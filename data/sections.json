@@ -1,0 +1,93 @@
+[
+    {
+        "_id": 10,
+        "SectionNumber": "01",
+        "Days": "MWF",
+        "StartTime": 1000,
+        "RoomNumber": "CH1200",
+        "InstructorID": 1,
+        "CourseID": 44141
+
+    },
+    {
+        "_id": 11,
+        "SectionNumber": "02",
+        "Days": "MWF",
+        "StartTime": 1100,
+        "RoomNumber": "CH1200",
+        "InstructorID": 1,
+        "CourseID": 44141
+    },
+    {
+        "_id": 12,
+        "SectionNumber": "03",
+        "Days": "MWF",
+        "StartTime": 1200,
+        "RoomNumber": "CH1200",
+        "InstructorID": 1,
+        "CourseID": 44141
+    },
+    {
+        "_id": 13,
+        "SectionNumber": "01",
+        "Days": "MWF",
+        "StartTime": 1000,
+        "RoomNumber": "CH1300",
+        "InstructorID": 2,
+        "CourseID": 44241
+    },
+    {
+        "_id": 14,
+        "SectionNumber": "02",
+        "Days": "MWF",
+        "StartTime": 1200,
+        "RoomNumber": "CH1300",
+        "InstructorID": 2,
+        "CourseID": 44241
+    },
+    {
+        "_id": 15,
+        "SectionNumber": "03",
+        "Days": "MWF",
+        "StartTime": 100,
+        "RoomNumber": "CH1200",
+        "InstructorID": 3,
+        "CourseID": 44241
+    },
+    {
+        "_id": 16,
+        "SectionNumber": "01",
+        "Days": "TR",
+        "StartTime": 800,
+        "RoomNumber": "CH3600",
+        "InstructorID": 3,
+        "CourseID": 44563
+    },
+    {
+        "_id": 17,
+        "SectionNumber": "02",
+        "Days": "TR",
+        "StartTime": 930,
+        "RoomNumber": "CH3600",
+        "InstructorID": 3,
+        "CourseID": 44563
+    },
+    {
+        "_id": 18,
+        "SectionNumber": "01",
+        "Days": "TR",
+        "StartTime": 800,
+        "RoomNumber": "CH1200",
+        "InstructorID": 1,
+        "CourseID": 44460
+    },
+    {
+        "_id": 19,
+        "SectionNumber": "02",
+        "Days": "TR",
+        "StartTime": 930,
+        "RoomNumber": "CH1200",
+        "InstructorID": 1,
+        "CourseID": 44460
+    }
+]
