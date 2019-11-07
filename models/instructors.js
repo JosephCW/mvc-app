@@ -12,7 +12,8 @@ const InstructorSchema = new mongoose.Schema({
 
   _id: {
     type: Number,
-    unique: true
+    unique: true,
+    required: true
   },
   email: {
     type: String,
