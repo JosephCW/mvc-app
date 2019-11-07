@@ -19,7 +19,7 @@ module.exports = (app) => {
   db.sections = new Datastore()
   db.sections.loadDatabase()
   db.courses = new Datastore()
-  db.course.loadDatabase()
+  db.courses.loadDatabase()
 
   // Insert the sample data into our datastore
   db.instructors.insert(instructorData)

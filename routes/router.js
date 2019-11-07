@@ -15,13 +15,13 @@ const router = express.Router()
 // Manage top-level request first
 router.get('/', (req, res, next) => {
   console.log('Request to /')
-  res.sendFile('index.html')
+  res.render('index.ejs', {title : 'Express app'})
 })
 
-router.get('/index', (req, res, next) => {
-  console.log('Request to /index')
-  res.sendFile('index.html')
-})
+// router.get('/index', (req, res, next) => {
+//   console.log('Request to /index')
+//   res.sendFile('index.html')
+// })
 
 // Route requests that start with '/dev' to a particular controller
 router.use('/inst', require('../controllers/instructor.js'))

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>App</title>
+  <!-- https://fezvrasta.github.io/bootstrap-material-design/ -->
+  <!-- Bootstrap Material Design Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <!-- Bootstrap Material Design -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <!-- Bootstrap Material Design requires jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap Material Design requires Popper -->
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+    integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap Material Design  -->
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+    integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+  <link rel="manifest" href="../../images/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../../images/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+  <% include header.ejs %>
+  <main>
+    <%- body %>
+  </main>
+  <% include footer.ejs %>
+
+</body>
+
+</html>

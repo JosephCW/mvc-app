@@ -7,7 +7,7 @@
 */
 const express = require('express')
 const api = express.Router()
-// const Model = require('../models/developer.js')
+const Model = require('../models/instructors.js')
 const find = require('lodash.find')
 const notfoundstring = 'Could not find instructor with id='
 
@@ -31,7 +31,13 @@ api.get('/findone/:id', (req, res) => {
 
 // RESPOND WITH VIEWS  --------------------------------------------
 
-// later
+api.get('/', (req, res) => {
+  console.log(`Called / on instructor: ${req}`)
+  Model.find({}, (err, data) => {
+    res.locals.instructors = data
+    res.render('instructor/index.ejs')
+  })
+})
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
 
