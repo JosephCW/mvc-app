@@ -7,12 +7,14 @@
     "config": "latest",
     "consolidate": "^0.15.1",
     "ejs": "^2.7.1",
+    "errorhandler": "^1.5.1",
     "express": "latest",
     "express-ejs-layouts": "^2.5.0",
     "lodash": "latest",
     "lodash.find": "latest",
     "mongoose": "latest",
-    "nedb": "latest"
+    "nedb": "latest",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "latest",

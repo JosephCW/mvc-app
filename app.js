@@ -12,9 +12,12 @@
 const config = require('config')
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
+const favicon = require('serve-favicon')
+const bodyParser = require('body-parser')
 const app = express() // create an Express web app
 const path = require('path') // for local file directories.
 const engines = require('consolidate')
+const errorHandler = require('errorhandler')
 
 // Use hosting values if available, otherwise default
 const environment = process.env.NODE_ENV || 'development'
@@ -27,6 +30,13 @@ app.set('views', path.join(__dirname, 'views'))
 // By default, Express does not serve static files.
 // use middleware to define a static assets folder 'public'
 app.use(express.static('public'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
+app.use(expressLayouts)
+app.use(errorHandler()) // load error handler
+app.use(favicon(path.join(__dirname, '/public/images/favicon.ico'))) // add favicon
+
 
 // load seed data
 require('./utils/seeder.js')(app)

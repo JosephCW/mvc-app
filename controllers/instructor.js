@@ -7,7 +7,7 @@
 */
 const express = require('express')
 const api = express.Router()
-const Model = require('../models/instructors.js')
+//const Model = require('../models/instructors.js')
 const find = require('lodash.find')
 const notfoundstring = 'Could not find instructor with id='
 
@@ -31,16 +31,53 @@ api.get('/findone/:id', (req, res) => {
 
 // RESPOND WITH VIEWS  --------------------------------------------
 
+// GET request to base page.
 api.get('/', (req, res) => {
-  console.log(`Called / on instructor: ${req}`)
-  Model.find({}, (err, data) => {
-    res.locals.instructors = data
-    res.render('instructor/index.ejs')
-  })
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access /, ${req.baseUrl}`)
+})
+
+// GET to create page
+api.get('/create', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the create page, ${req.baseUrl}`)
+})
+
+// GET to details page
+api.get('/details', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the details page, ${req.baseUrl}`)
+})
+
+// GET to create page
+api.get('/edit', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+})
+
+// GET to create page
+api.get('/delete', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access delete page, ${req.baseUrl}`)
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
+// post new
+api.post('/save', (req, res) => {
+  console.log(`You tried to access the save page, ${req.baseUrl}`)
+  res.redirect('/inst')
+})
 
-// later
+// post save w/ id
+api.post('/save/:id', (req, res) => {
+  console.log(`You tried to access the save page with an id of ${req.params.id}, ${req.baseUrl}`)
+  res.redirect('/inst')
+})
+
+// delete by id
+api.post('/delete/:id', (req, res) => {
+  console.log(`You tried to access the delete page with an id of ${req.params.id}, ${req.baseUrl}`)
+  res.redirect('/inst')
+})
 
 module.exports = api
