@@ -1,8 +1,8 @@
 /**
-*  Developer controller
-*  Handles requests related to developer resources.
+*  Instructor controller
+*  Handles requests related to instructor resources.
 *
-* @author Denise Case <dcase@nwmissouri.edu>
+* @author Joseph Watts <s519653@nwmissouri.edu>
 *
 */
 const express = require('express')
@@ -12,7 +12,6 @@ const find = require('lodash.find')
 const notfoundstring = 'Could not find instructor with id='
 
 // RESPOND WITH JSON DATA  --------------------------------------------
-
 // GET all JSON
 api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
