@@ -33,8 +33,9 @@ api.get('/findone/:id', (req, res) => {
 
 // GET request to base page.
 api.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access /, ${req.baseUrl}`)
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access /, ${req.baseUrl}`)
+  res.render('instructor/index.ejs')
 })
 
 // GET to create page
