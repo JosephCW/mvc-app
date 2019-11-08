@@ -32,7 +32,35 @@ api.get('/findone/:id', (req, res) => {
 
 // RESPOND WITH VIEWS  --------------------------------------------
 
-// later
+api.get('/', (req, res) => {
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access /, ${req.baseUrl}`)
+  res.render('course/index.ejs')
+})
+
+// GET to create page
+api.get('/create', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the create page, ${req.baseUrl}`)
+})
+
+// GET to details page
+api.get('/details', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the details page, ${req.baseUrl}`)
+})
+
+// GET to create page
+api.get('/edit', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+})
+
+// GET to create page
+api.get('/delete', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`You tried to access delete page, ${req.baseUrl}`)
+})
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
 

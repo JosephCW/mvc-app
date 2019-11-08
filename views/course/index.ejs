@@ -1,0 +1,62 @@
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+        <h3>GET resources</h3>
+        <ol>
+            <li> <a href="http://localhost:3004/cour/findall">http://localhost:3004/cour/findall</a></li>
+            <li> <a href="http://localhost:3004/cour/findone/1">http://localhost:3004/cour/findone/1</a></li>
+            <li> <a href="http://localhost:3004/cour/">http://localhost:3004/cour/</a></li>
+            <li> <a href="http://localhost:3004/cour/create">http://localhost:3004/cour/create</a></li>
+            <li> <a href="http://localhost:3004/cour/details">http://localhost:3004/cour/details</a></li>
+            <li> <a href="http://localhost:3004/cour/edit">http://localhost:3004/cour/edit</a></li>
+            <li> <a href="http://localhost:3004/cour/delete">http://localhost:3004/cour/delete</a></li>
+        </ol>
+    </div>
+    <div class="col-md-6">
+            <h3>POST resources</h3>
+            <ol>
+                <li> <a href="http://localhost:3004/cour/">http://localhost:3004/cour/</a></li>
+                <li> <a href="http://localhost:3004/cour/create">http://localhost:3004/cour/create</a></li>
+                <li> <a href="http://localhost:3004/cour/details">http://localhost:3004/cour/details</a></li>
+                <li> <a href="http://localhost:3004/cour/edit">http://localhost:3004/cour/edit</a></li>
+                <li> <a href="http://localhost:3004/cour/delete">http://localhost:3004/cour/delete</a></li>
+            </ol>
+        </div>
+    <div class="col-md-3">
+      <a href="cour/create" class="btn btn-primary new">
+        add a new course
+      </a>
+      
+      <!-- <h2>Recent entries</h2>
+      <p>There are
+        <%= courructors.length %> instructors.
+        <br>
+      </p>
+      <% for (var i = instructors.length-1; i >= 0; i--) {   
+        instructor = instructors[i];   %>
+      <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="text-muted pull-right"></div>
+        <div class="panel-body">
+
+          <br> ID: <%=  instructor._id %>
+          <br> Given Name: <%=instructor.given%>
+          <br> Last Name: <%=instructor.family%>
+          <br> email: <%=instructor.email%>
+          <br> salary: <%=instructor.salary%>
+          <br> github: <%=instructor.github%>
+          <hr>
+          <a href="/inst/delete/<%= instructor._id  %>" class="btn btn-danger"> Delete </a>
+          <a href="/inst/details/<%= instructor._id %>" class="btn btn-info"> Details </a>
+          <a href="/inst/edit/<%= instructor._id %>" class="btn btn-primary"> Edit </a>
+          <hr>
+          <hr>
+        </div>
+      </div>
+      <% } %> -->
+
+    </div>
+  </div>
+</div>
