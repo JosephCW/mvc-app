@@ -33,41 +33,62 @@ api.get('/findone/:id', (req, res) => {
 
 // GET request to base page.
 api.get('/', (req, res) => {
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access /, ${req.baseUrl}`)
+  const data = req.app.locals.instructors.query
+  res.locals.instructors = data
   res.render('instructor/index.ejs')
 })
 
 // GET to create page
 api.get('/create', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the create page, ${req.baseUrl}`)
+  // TODO - add logic to pass all instructors to next page
+  const data = req.app.locals.instructors.query
+  res.locals.instructors = data
+  res.render('instructor/create.ejs')
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access the create page, ${req.baseUrl}`)
 })
 
 // GET to details page
-api.get('/details', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the details page, ${req.baseUrl}`)
+api.get('/details/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.instructors.query
+  const item = find(data, { _id: id })
+  if (!item) {
+    res.render('404.ejs')
+  }
+  // TODO - add logic to pass the instructor with that id to next page
+  res.locals.instructor = item[0]
+  res.render('instructor/details.ejs')
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access the details page, ${req.baseUrl}`)
 })
 
 // GET to create page
-api.get('/edit', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+api.get('/edit/:id', (req, res) => {
+  // TODO - add logic to pass the instructor with that id to next page
+  res.render('instructor/edit.ejs')
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access the edit page, ${req.baseUrl}`)
 })
 
 // GET to create page
-api.get('/delete', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access delete page, ${req.baseUrl}`)
+api.get('/delete/:id', (req, res) => {
+  // TODO - add logic to pass the instructor with that id to next page
+  res.render('instructor/delete.ejs')
+  // res.setHeader('Content-Type', 'text/plain')
+  // res.send(`You tried to access delete page, ${req.baseUrl}`)
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
+
 // post new
 api.post('/save', (req, res) => {
   console.log(`You tried to access the save page, ${req.baseUrl}`)
   res.redirect('/inst')
 })
+
+// THESE ARE POST REQUEST ROUTES, WILL ONLY REPLY TO POST REQUEST.
+// ABOVE ROUTING IS GET REQUEST FOR CERTAIN IDS
 
 // post save w/ id
 api.post('/save/:id', (req, res) => {
