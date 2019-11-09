@@ -53,9 +53,9 @@ api.get('/details/:id', (req, res) => {
   const id = parseInt(req.params.id)
   const data = req.app.locals.instructors.query
   const item = find(data, { _id: id })
-  if (!item) {
-    res.render('404.ejs')
-  }
+  // EJS will continue to run code even after res.render. It is not == calling return.
+  if (!item) { res.render('404.ejs'); return -1}
+  //res.send(JSON.stringify(item))
   // TODO - add logic to pass the instructor with that id to next page
   res.locals.instructor = item[0]
   res.render('instructor/details.ejs')
