@@ -55,8 +55,6 @@ api.get('/details/:id', (req, res) => {
   const item = find(data, { _id: id })
   // EJS will continue to run code even after res.render. It is not == calling return.
   if (!item) { res.render('404.ejs'); return -1}
-  //res.send(JSON.stringify(item))
-  // TODO - add logic to pass the instructor with that id to next page
   res.locals.instructor = item[0]
   res.render('instructor/details.ejs')
   // res.setHeader('Content-Type', 'text/plain')
@@ -65,15 +63,22 @@ api.get('/details/:id', (req, res) => {
 
 // GET to create page
 api.get('/edit/:id', (req, res) => {
-  // TODO - add logic to pass the instructor with that id to next page
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.instructors.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.instructor = item
   res.render('instructor/edit.ejs')
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access the edit page, ${req.baseUrl}`)
 })
 
 // GET to create page
 api.get('/delete/:id', (req, res) => {
   // TODO - add logic to pass the instructor with that id to next page
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.instructors.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.instructor = item[0]
   res.render('instructor/delete.ejs')
   // res.setHeader('Content-Type', 'text/plain')
   // res.send(`You tried to access delete page, ${req.baseUrl}`)
