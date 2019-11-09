@@ -4,21 +4,17 @@
   <div class=row>
     <div class="col col-md-12">
 
-      <h2>Customer details</h2>
+      <h2>Instructor details</h2>
       <br>
-      <br> ID: <%=  customer._id %>
-      <br> Email: <%=customer.email%>
-      <br> Given: <%=customer.given%>
-      <br> Family: <%=customer.family%>
-      <br> Street 1: <%=customer.street1%>
-      <br> Street 2: <%=customer.street2 %>
-      <br> City: <%=customer.city %>
-      <br> State: <%=customer.state %>
-      <br> Zip: <%=customer.zip %>
-      <br> Country: <%=customer.country %>
+      <br> ID: <%=  instructor._id %>
+      <br> Given Name: <%=instructor.given%>
+      <br> Last Name: <%=instructor.family%>
+      <br> email: <%=instructor.email%>
+      <br> salary: <%=instructor.salary%>
+      <br> github: <%=instructor.github%>
       <hr>
 
-      <form method="get" action="/customer">
+      <form method="get" action="/inst">
         <input type="submit" value="Return to list" class="btn btn-caution" />
       </form>
 

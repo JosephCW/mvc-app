@@ -44,8 +44,6 @@ api.get('/create', (req, res) => {
   const data = req.app.locals.instructors.query
   res.locals.instructors = data
   res.render('instructor/create.ejs')
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access the create page, ${req.baseUrl}`)
 })
 
 // GET to details page
@@ -55,10 +53,8 @@ api.get('/details/:id', (req, res) => {
   const item = find(data, { _id: id })
   // EJS will continue to run code even after res.render. It is not == calling return.
   if (!item) { res.render('404.ejs'); return -1}
-  res.locals.instructor = item[0]
+  res.locals.instructor = item
   res.render('instructor/details.ejs')
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access the details page, ${req.baseUrl}`)
 })
 
 // GET to create page
@@ -78,10 +74,8 @@ api.get('/delete/:id', (req, res) => {
   const data = req.app.locals.instructors.query
   const item = find(data, { _id: id })
   if (!item) { res.render('404.ejs'); return -1}
-  res.locals.instructor = item[0]
+  res.locals.instructor = item
   res.render('instructor/delete.ejs')
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access delete page, ${req.baseUrl}`)
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
