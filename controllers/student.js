@@ -7,12 +7,11 @@
 */
 const express = require('express')
 const api = express.Router()
-// const Model = require('../models/developer.js')
+//const Model = require('../models/students.js')
 const find = require('lodash.find')
 const notfoundstring = 'Could not find student with id='
 
 // RESPOND WITH JSON DATA  --------------------------------------------
-
 // GET all JSON
 api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
@@ -34,41 +33,61 @@ api.get('/findone/:id', (req, res) => {
 
 // GET request to base page.
 api.get('/', (req, res) => {
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access /, ${req.baseUrl}`)
+  const data = req.app.locals.students.query
+  res.locals.students = data
   res.render('student/index.ejs')
 })
 
 // GET to create page
 api.get('/create', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the create page, ${req.baseUrl}`)
+  // TODO - add logic to pass all students to next page
+  const data = req.app.locals.students.query
+  res.locals.students = data
+  res.render('student/create.ejs')
 })
 
 // GET to details page
-api.get('/details', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the details page, ${req.baseUrl}`)
+api.get('/details/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.students.query
+  const item = find(data, { _id: id })
+  // EJS will continue to run code even after res.render. It is not == calling return.
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.student = item
+  res.render('student/details.ejs')
 })
 
 // GET to create page
-api.get('/edit', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+api.get('/edit/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.students.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.student = item
+  res.render('student/edit.ejs')
 })
 
 // GET to create page
-api.get('/delete', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access delete page, ${req.baseUrl}`)
+api.get('/delete/:id', (req, res) => {
+  // TODO - add logic to pass the student with that id to next page
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.students.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.student = item
+  res.render('student/delete.ejs')
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
+
 // post new
 api.post('/save', (req, res) => {
   console.log(`You tried to access the save page, ${req.baseUrl}`)
   res.redirect('/stu')
 })
+
+// THESE ARE POST REQUEST ROUTES, WILL ONLY REPLY TO POST REQUEST.
+// ABOVE ROUTING IS GET REQUEST FOR CERTAIN IDS
 
 // post save w/ id
 api.post('/save/:id', (req, res) => {

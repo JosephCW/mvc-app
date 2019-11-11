@@ -9,9 +9,9 @@
             <li> <a href="http://localhost:3004/stu/findone/1">http://localhost:3004/stu/findone/1</a></li>
             <li> <a href="http://localhost:3004/stu/">http://localhost:3004/stu/</a></li>
             <li> <a href="http://localhost:3004/stu/create">http://localhost:3004/stu/create</a></li>
-            <li> <a href="http://localhost:3004/stu/details">http://localhost:3004/stu/details</a></li>
-            <li> <a href="http://localhost:3004/stu/edit">http://localhost:3004/stu/edit</a></li>
-            <li> <a href="http://localhost:3004/stu/delete">http://localhost:3004/stu/delete</a></li>
+            <li> <a href="http://localhost:3004/stu/details/1">http://localhost:3004/stu/details/1</a></li>
+            <li> <a href="http://localhost:3004/stu/edit/1">http://localhost:3004/stu/edit/1</a></li>
+            <li> <a href="http://localhost:3004/stu/delete/1">http://localhost:3004/stu/delete/1</a></li>
         </ol>
     </div>
     <div class="col-md-6">
@@ -19,16 +19,45 @@
             <ol>
                 <li> <a href="http://localhost:3004/stu/">http://localhost:3004/stu/</a></li>
                 <li> <a href="http://localhost:3004/stu/create">http://localhost:3004/stu/create</a></li>
-                <li> <a href="http://localhost:3004/stu/details">http://localhost:3004/stu/details</a></li>
-                <li> <a href="http://localhost:3004/stu/edit">http://localhost:3004/stu/edit</a></li>
-                <li> <a href="http://localhost:3004/stu/delete">http://localhost:3004/stu/delete</a></li>
+                <li> <a href="http://localhost:3004/stu/details/1">http://localhost:3004/stu/details/1</a></li>
+                <li> <a href="http://localhost:3004/stu/edit/1">http://localhost:3004/stu/edit/1</a></li>
+                <li> <a href="http://localhost:3004/stu/delete/1">http://localhost:3004/stu/delete/1</a></li>
             </ol>
         </div>
-    <div class="col-md-3">
-      <a href="stu/create" class="btn btn-primary new">
-        add a new student
-      </a>
-      
+        <div class="col-md-6">
+          <a href="stu/create" class="btn btn-primary new">
+            add a new student
+          </a>
+          
+          <h2>Recent entries</h2>
+          <p>There are
+            <%= students.length %> students.
+            <br>
+          </p>
+          <% for (var i = students.length-1; i >= 0; i--) {   
+            student = students[i];   %>
+          <div class="panel panel-default">
+            <div class="panel-heading"></div>
+            <div class="text-muted pull-right"></div>
+            <div class="panel-body">
+    
+              <br> ID: <%=student._id %>
+              <br> Given Name: <%=student.given%>
+              <br> Last Name: <%=student.family%>
+              <br> email: <%=student.email%>
+              <br> gpa: <%=student.gpa%>
+              <br> section: <%=student.section_id%>
+              <br> github: <%=student.github%>
+              <hr>
+              <a href="/stu/delete/<%= student._id  %>" class="btn btn-danger"> Delete </a>
+              <a href="/stu/details/<%= student._id %>" class="btn btn-info"> Details </a>
+              <a href="/stu/edit/<%= student._id %>" class="btn btn-primary"> Edit </a>
+              <hr>
+              <hr>
+            </div>
+          </div>
+          <% } %>
+    
+        </div>
+      </div>
     </div>
-  </div>
-</div>
