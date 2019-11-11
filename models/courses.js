@@ -16,16 +16,19 @@ const CourseSchema = new mongoose.Schema({
   },
   SchoolNumber: {
     type: Number,
+    required: true,
     default: 44
   },
   CourseNumber: {
     type: Number,
+    required: true,
     default: 563
   },
   Name: {
     type: String,
     minlength: 3,
     maxlength: 100,
+    required: true,
     default: 'Course Name'
   },
   inSpring: {
