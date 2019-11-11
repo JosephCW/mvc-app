@@ -32,34 +32,51 @@ api.get('/findone/:id', (req, res) => {
 
 // RESPOND WITH VIEWS  --------------------------------------------
 
+// GET request to base page.
 api.get('/', (req, res) => {
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access /, ${req.baseUrl}`)
+  const data = req.app.locals.courses.query
+  res.locals.courses = data
   res.render('course/index.ejs')
 })
 
 // GET to create page
 api.get('/create', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the create page, ${req.baseUrl}`)
+  // TODO - add logic to pass all courses to next page
+  const data = req.app.locals.courses.query
+  res.locals.courses = data
+  res.render('course/create.ejs')
 })
 
 // GET to details page
-api.get('/details', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the details page, ${req.baseUrl}`)
+api.get('/details/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.courses.query
+  const item = find(data, { _id: id })
+  // EJS will continue to run code even after res.render. It is not == calling return.
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.course = item
+  res.render('course/details.ejs')
 })
 
 // GET to create page
-api.get('/edit', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+api.get('/edit/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.courses.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.course = item
+  res.render('course/edit.ejs')
 })
 
 // GET to create page
-api.get('/delete', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access delete page, ${req.baseUrl}`)
+api.get('/delete/:id', (req, res) => {
+  // TODO - add logic to pass the course with that id to next page
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.courses.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.course = item
+  res.render('course/delete.ejs')
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
