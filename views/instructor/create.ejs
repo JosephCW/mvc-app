@@ -4,22 +4,22 @@
   <div class=row>
     <div class="col col-md-12">
 
-      <h2>Create a new customer </h2>
+      <h2>Create a new instructor </h2>
       <br>
       <% 
       maxID=0; 
-      for (var i=0; i < customers.length; i++) {
-        if(customers[i]._id > maxID) { 
-          maxID=customers[i]._id;  
+      for (var i=0; i < instructors.length; i++) {
+        if(instructors[i]._id > maxID) { 
+          maxID=instructors[i]._id;  
         }
       }
-      const customer = {}
-      customer._id = maxID+1
+      const instructor = {}
+      instructor._id = maxID+1
      
       %>
       <div class="content">
         <div>
-          <form name="customer" method="POST" action="/customer/save">
+          <form name="instructor" method="POST" action="/inst/save">
 
             <div class="form-group" id=frm>
               <label for="_id">ID</label>
@@ -34,7 +34,7 @@
             </div>
           </form>
 
-          <form method="get" action="/customer">
+          <form method="get" action="/inst">
             <input type="submit" value="Return to list" class="btn btn-caution" />
           </form>
 
