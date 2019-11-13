@@ -1,0 +1,28 @@
+<br>
+<br>
+<div class="container-fluid">
+  <div class=row>
+    <div class="col col-md-12">
+
+        <h2>Confirm deletion of Section</h2>
+        <br>
+        <br> ID: <%=  section._id %>
+        <br> Section Number: <%=section.SectionNumber%>
+        <br> Days: <%=section.Days%>
+        <br> Start Time: <%=section.StartTime%>
+        <br> Room Number: <%=section.RoomNumber%>
+        <br> Instructor ID: <%=section.InstructorID%>
+        <br> Course ID: <%=section.CourseID%>
+        <hr>
+      
+      <form method="get" action="/inst">
+        <input type="submit" value="Return to list" class="btn btn-caution" />
+      </form>
+
+      <form method="POST" action="/sec/delete/<%= section._id %>">
+        <input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
+      </form>
+
+    </div>
+  </div>
+</div>

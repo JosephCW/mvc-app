@@ -31,52 +31,68 @@ api.get('/findone/:id', (req, res) => {
 })
 
 // RESPOND WITH VIEWS  --------------------------------------------
+// GET request to base page.
 api.get('/', (req, res) => {
-  // res.setHeader('Content-Type', 'text/plain')
-  // res.send(`You tried to access /, ${req.baseUrl}`)
+  const data = req.app.locals.sections.query
+  res.locals.sections = data
   res.render('section/index.ejs')
 })
 
 // GET to create page
 api.get('/create', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the create page, ${req.baseUrl}`)
+  // TODO - add logic to pass all sections to next page
+  const data = req.app.locals.sections.query
+  res.locals.sections = data
+  res.render('section/create.ejs')
 })
 
 // GET to details page
-api.get('/details', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the details page, ${req.baseUrl}`)
+api.get('/details/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  // EJS will continue to run code even after res.render. It is not == calling return.
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.section = item
+  res.render('section/details.ejs')
 })
 
 // GET to create page
-api.get('/edit', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access the edit page, ${req.baseUrl}`)
+api.get('/edit/:id', (req, res) => {
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.section = item
+  res.render('section/edit.ejs')
 })
 
 // GET to create page
-api.get('/delete', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain')
-  res.send(`You tried to access delete page, ${req.baseUrl}`)
+api.get('/delete/:id', (req, res) => {
+  // TODO - add logic to pass the section with that id to next page
+  const id = parseInt(req.params.id)
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { res.render('404.ejs'); return -1}
+  res.locals.section = item
+  res.render('section/delete.ejs')
 })
-
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
 // post new
 api.post('/save', (req, res) => {
   console.log(`You tried to access the save page, ${req.baseUrl}`)
-  res.redirect('/inst')
+  res.redirect('/sec')
 })
 
 // post save w/ id
 api.post('/save/:id', (req, res) => {
   console.log(`You tried to access the save page with an id of ${req.params.id}, ${req.baseUrl}`)
-  res.redirect('/inst')
+  res.redirect('/sec')
 })
 
 // delete by id
 api.post('/delete/:id', (req, res) => {
   console.log(`You tried to access the delete page with an id of ${req.params.id}, ${req.baseUrl}`)
-  res.redirect('/inst')
+  res.redirect('/sec')
 })
 module.exports = api

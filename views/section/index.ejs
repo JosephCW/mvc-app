@@ -26,36 +26,37 @@
         </div>
     <div class="col-md-3">
       <a href="sec/create" class="btn btn-primary new">
-        add a new instructor
+        add a new section
       </a>
       
-      <!-- <h2>Recent entries</h2>
+      <h2>Recent entries</h2>
       <p>There are
-        <%= instructors.length %> instructors.
+        <%= sections.length %> sections.
         <br>
       </p>
-      <% for (var i = instructors.length-1; i >= 0; i--) {   
-        instructor = instructors[i];   %>
+      <% for (var i = sections.length-1; i >= 0; i--) {   
+        section = sections[i];   %>
       <div class="panel panel-default">
         <div class="panel-heading"></div>
         <div class="text-muted pull-right"></div>
         <div class="panel-body">
 
-          <br> ID: <%=  instructor._id %>
-          <br> Given Name: <%=instructor.given%>
-          <br> Last Name: <%=instructor.family%>
-          <br> email: <%=instructor.email%>
-          <br> salary: <%=instructor.salary%>
-          <br> github: <%=instructor.github%>
+          <br> ID: <%=  section._id %>
+          <br> Section Number: <%=section.SectionNumber%>
+          <br> Days: <%=section.Days%>
+          <br> Start Time: <%=section.StartTime%>
+          <br> Room Number: <%=section.RoomNumber%>
+          <br> Instructor ID: <%=section.InstructorID%>
+          <br> Course ID: <%=section.CourseID%>
           <hr>
-          <a href="/inst/delete/<%= instructor._id  %>" class="btn btn-danger"> Delete </a>
-          <a href="/inst/details/<%= instructor._id %>" class="btn btn-info"> Details </a>
-          <a href="/inst/edit/<%= instructor._id %>" class="btn btn-primary"> Edit </a>
+          <a href="/sec/delete/<%= section._id  %>" class="btn btn-danger"> Delete </a>
+          <a href="/sec/details/<%= section._id %>" class="btn btn-info"> Details </a>
+          <a href="/sec/edit/<%= section._id %>" class="btn btn-primary"> Edit </a>
           <hr>
           <hr>
         </div>
       </div>
-      <% } %> -->
+      <% } %>
 
     </div>
   </div>
