@@ -24,10 +24,40 @@
                 <li> <a href="http://localhost:3004/cour/delete/1">http://localhost:3004/cour/delete/1</a></li>
             </ol>
         </div>
-    <div class="col-md-6">
-      <a href="cour/create" class="btn btn-primary new">
-        add a new course
-      </a>
-    </div>
+        <div class="col-md-6">
+          <a href="cour/create" class="btn btn-primary new">
+            Add a New Course
+          </a>
+          
+          <h2>Recent entries</h2>
+          <p>There are
+            <%= courses.length %> courses.
+            <br>
+          </p>
+          <% for (var i = courses.length-1; i >= 0; i--) {   
+            course = courses[i];   %>
+          <div class="panel panel-default">
+            <div class="panel-heading"></div>
+            <div class="text-muted pull-right"></div>
+            <div class="panel-body">
+    
+              <br> ID: <%=course._id %>
+              <br> School Number: <%=course.SchoolNumber%>
+              <br> Course Number: <%=course.CourseNumber%>
+              <br> Course Name: <%=course.Name%>
+              <br> In Spring?: <%=course.inSpring%>
+              <br> In Summer?: <%=course.inSummer%>
+              <br> In Fall?: <%=course.inFall%>
+              <hr>
+              <a href="/cour/delete/<%= course._id  %>" class="btn btn-danger"> Delete </a>
+              <a href="/cour/details/<%= course._id %>" class="btn btn-info"> Details </a>
+              <a href="/cour/edit/<%= course._id %>" class="btn btn-primary"> Edit </a>
+              <hr>
+              <hr>
+            </div>
+          </div>
+          <% } %>
+    
+        </div>
   </div>
 </div>
