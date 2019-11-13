@@ -81,6 +81,25 @@ api.get('/delete/:id', (req, res) => {
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
 
-// later
+// post new
+api.post('/save', (req, res) => {
+  console.log(`You tried to access the save page, ${req.baseUrl}`)
+  res.redirect('/cour')
+})
+
+// THESE ARE POST REQUEST ROUTES, WILL ONLY REPLY TO POST REQUEST.
+// ABOVE ROUTING IS GET REQUEST FOR CERTAIN IDS
+
+// post save w/ id
+api.post('/save/:id', (req, res) => {
+  console.log(`You tried to access the save page with an id of ${req.params.id}, ${req.baseUrl}`)
+  res.redirect('/cour')
+})
+
+// delete by id
+api.post('/delete/:id', (req, res) => {
+  console.log(`You tried to access the delete page with an id of ${req.params.id}, ${req.baseUrl}`)
+  res.redirect('/cour')
+})
 
 module.exports = api
