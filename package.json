@@ -6,6 +6,7 @@
   "dependencies": {
     "config": "latest",
     "consolidate": "^0.15.1",
+    "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "errorhandler": "^1.5.1",
     "express": "latest",
@@ -14,7 +15,8 @@
     "lodash.find": "latest",
     "mongoose": "latest",
     "nedb": "latest",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "eslint": "latest",
