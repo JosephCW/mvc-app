@@ -130,7 +130,7 @@ api.post('/save/:id', (req, res) => {
       if (err) { return res.end(notfoundstring) }
       LOG.info(`ORIGINAL VALUES ${JSON.stringify(item)}`)
       LOG.info(`UPDATED VALUES: ${JSON.stringify(req.body)}`)
-      LOG.info(`SAVING UPDATED customer ${JSON.stringify(item)}`)
+      LOG.info(`SAVING UPDATED instructor ${JSON.stringify(item)}`)
       return res.redirect('/inst')
     })
 })
