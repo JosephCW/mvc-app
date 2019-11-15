@@ -122,8 +122,8 @@ api.post('/save/:id', (req, res) => {
         email: req.body.email,
         given: req.body.given,
         family: req.body.family,
-        street1: req.body.salary,
-        street2: req.body.github
+        salary: req.body.salary,
+        github: req.body.github
       }
     },
     (err, item) => {
