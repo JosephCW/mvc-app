@@ -122,15 +122,15 @@ api.post('/save/:id', (req, res) => {
         email: req.body.email,
         given: req.body.given,
         family: req.body.family,
-        street1: req.body.salary,
-        street2: req.body.github
+        salary: req.body.salary,
+        github: req.body.github
       }
     },
     (err, item) => {
       if (err) { return res.end(notfoundstring) }
       LOG.info(`ORIGINAL VALUES ${JSON.stringify(item)}`)
       LOG.info(`UPDATED VALUES: ${JSON.stringify(req.body)}`)
-      LOG.info(`SAVING UPDATED customer ${JSON.stringify(item)}`)
+      LOG.info(`SAVING UPDATED instructor ${JSON.stringify(item)}`)
       return res.redirect('/inst')
     })
 })
