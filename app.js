@@ -86,7 +86,7 @@ connection.once('open', function () {
   LOG.info(`MongoDB connected ${dbURI}\n`)
 
   seed('instructors')
-  // seed('products')
+  seed('students')
   // seed('orders')
   // seed('orderlineitems')
 
