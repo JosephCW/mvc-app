@@ -87,7 +87,7 @@ connection.once('open', function () {
 
   seed('instructors')
   seed('students')
-  // seed('orders')
+  seed('courses')
   // seed('orderlineitems')
 
   connection.on('connected', function () {
