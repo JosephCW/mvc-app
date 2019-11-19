@@ -4,6 +4,12 @@
 
 [![Build Status](https://travis-ci.org/denisecase/node-express-mvc.svg?branch=master)](https://travis-ci.org/denisecase/node-express-mvc)
 
+## Developers
+- 
+- [Chase Smith](https://cweltonsmith.github.io/about-me/)
+-
+-
+
 ## Links
 
 - [Demo](https://denisecase.github.io/node-express-mvc/)
