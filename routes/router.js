@@ -15,6 +15,7 @@ const router = express.Router()
 // Manage top-level request first
 router.get('/', (req, res, next) => {
   console.log('Request to /')
+  
   res.render('index.ejs', {title : 'Express app'})
 })
 

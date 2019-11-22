@@ -64,7 +64,7 @@ api.get('/delete/:id', (req, res) => {
 })
 
 // GET to create page
-api.get('/detaisl/:id', (req, res) => {
+api.get('/details/:id', (req, res) => {
   LOG.info(`Handling GET /details/:id ${req}`)
   const id = parseInt(req.params.id)
   Model.find({ _id: id }, (err, results) => {
