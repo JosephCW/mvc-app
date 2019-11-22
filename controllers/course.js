@@ -7,84 +7,106 @@
 */
 const express = require('express')
 const api = express.Router()
-// const Model = require('../models/courses.js')
+const Model = require('../models/courses.js')
 const find = require('lodash.find')
 const notfoundstring = 'Could not find course with id='
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
-// GET all JSON
 api.get('/findall', (req, res) => {
-  res.setHeader('Content-Type', 'application/json')
-  const data = req.app.locals.courses.query
-  res.send(JSON.stringify(data))
+  LOG.info(`Handling /findall ${req}`)
+  Model.find({}, (err, data) => {
+    res.json(data)
+  })
 })
 
 // GET one JSON by ID
 api.get('/findone/:id', (req, res) => {
-  res.setHeader('Content-Type', 'application/json')
+  LOG.info(`Handling /findone ${req}`)
   const id = parseInt(req.params.id)
-  const data = req.app.locals.courses.query
-  const item = find(data, { _id: id })
-  if (!item) { return res.end(notfoundstring + id) }
-  res.send(JSON.stringify(item))
+  Model.find({ _id: id }, (err, results) => {
+    if (err) { return res.end(notfoundstring) }
+    res.json(results[0])
+  })
 })
 
 // RESPOND WITH VIEWS  --------------------------------------------
 
 // GET request to base page.
 api.get('/', (req, res) => {
-  const data = req.app.locals.courses.query
-  res.locals.courses = data
-  res.render('course/index.ejs')
+  LOG.info(`Handling GET / ${req}`)
+  Model.find({}, (err, data) => {
+    res.locals.courses = data
+    res.render('course/index.ejs')
+  })
 })
 
 // GET to create page
 api.get('/create', (req, res) => {
-  // TODO - add logic to pass all courses to next page
-  const data = req.app.locals.courses.query
-  res.locals.courses = data
-  res.render('course/create.ejs')
+  LOG.info(`Handling GET /create ${req}`)
+  Model.find({}, (err, data) => {
+    res.locals.courses = data
+    res.locals.course = new Model()
+    res.render('course/create')
+  })
 })
 
 // GET to details page
-api.get('/details/:id', (req, res) => {
+api.get('/delete/:id', (req, res) => {
+  LOG.info(`Handling GET /delete/:id ${req}`)
   const id = parseInt(req.params.id)
-  const data = req.app.locals.courses.query
-  const item = find(data, { _id: id })
-  // EJS will continue to run code even after res.render. It is not == calling return.
-  if (!item) { res.render('404.ejs'); return -1}
-  res.locals.course = item
-  res.render('course/details.ejs')
+  Model.find({ _id: id }, (err, results) => {
+    if (err) { return res.end(notfoundstring) }
+    LOG.info(`RETURNING VIEW FOR ${JSON.stringify(results)}`)
+    res.locals.course = results[0]
+    return res.render('course/delete.ejs')
+  })
+})
+
+// GET to create page
+api.get('/detaisl/:id', (req, res) => {
+  LOG.info(`Handling GET /details/:id ${req}`)
+  const id = parseInt(req.params.id)
+  Model.find({ _id: id }, (err, results) => {
+    if (err) { return res.end(notfoundstring) }
+    LOG.info(`RETURNING VIEW FOR ${JSON.stringify(results)}`)
+    res.locals.course = results[0]
+    return res.render('course/details.ejs')
+  })
 })
 
 // GET to create page
 api.get('/edit/:id', (req, res) => {
+  LOG.info(`Handling GET /edit/:id ${req}`)
   const id = parseInt(req.params.id)
-  const data = req.app.locals.courses.query
-  const item = find(data, { _id: id })
-  if (!item) { res.render('404.ejs'); return -1}
-  res.locals.course = item
-  res.render('course/edit.ejs')
-})
-
-// GET to create page
-api.get('/delete/:id', (req, res) => {
-  // TODO - add logic to pass the course with that id to next page
-  const id = parseInt(req.params.id)
-  const data = req.app.locals.courses.query
-  const item = find(data, { _id: id })
-  if (!item) { res.render('404.ejs'); return -1}
-  res.locals.course = item
-  res.render('course/delete.ejs')
+  Model.find({ _id: id }, (err, results) => {
+    if (err) { return res.end(notfoundstring) }
+    LOG.info(`RETURNING VIEW FOR${JSON.stringify(results)}`)
+    res.locals.course = results[0]
+    return res.render('course/edit.ejs')
+  })
 })
 
 // RESPOND WITH DATA MODIFICATIONS  -------------------------------
 
 // post new
 api.post('/save', (req, res) => {
-  console.log(`You tried to access the save page, ${req.baseUrl}`)
-  res.redirect('/cour')
+  LOG.info(`Handling POST ${req}`)
+  LOG.debug(JSON.stringify(req.body))
+  const item = new Model()
+  LOG.info(`NEW ID ${req.body._id}`)
+  item._id = parseInt(req.body._id)
+  item.SchoolNumber = req.body.SchoolNumber
+  item.CourseNumber = req.body.CourseNumber
+  item.Name = req.body.Name
+  item.inSpring = req.body.inSpring
+  item.inSummer = req.body.inSummer
+  item.inFall = req.body.inFall
+  item.save((err) => {
+    if (err) { return res.end('ERROR: course could not be saved') }
+    LOG.info(`SAVING NEW course ${JSON.stringify(item)}`)
+    return res.redirect('/cour')
+  })
 })
 
 // THESE ARE POST REQUEST ROUTES, WILL ONLY REPLY TO POST REQUEST.
@@ -92,14 +114,39 @@ api.post('/save', (req, res) => {
 
 // post save w/ id
 api.post('/save/:id', (req, res) => {
-  console.log(`You tried to access the save page with an id of ${req.params.id}, ${req.baseUrl}`)
-  res.redirect('/cour')
+  LOG.info(`Handling SAVE request ${req}`)
+  const id = parseInt(req.params.id)
+  LOG.info(`Handling SAVING ID=${id}`)
+  Model.updateOne({ _id: id },
+    { // use mongoose field update operator $set
+      $set: {
+        SchoolNumber: req.body.SchoolNumber,
+        CourseNumber: req.body.CourseNumber,
+        Name: req.body.Name,
+        inSpring: req.body.inSpring,
+        inSummer: req.body.inSummer,
+        inFall: req.body.inFall
+      }
+    },
+    (err, item) => {
+      if (err) { return res.end(notfoundstring) }
+      LOG.info(`ORIGINAL VALUES ${JSON.stringify(item)}`)
+      LOG.info(`UPDATED VALUES: ${JSON.stringify(req.body)}`)
+      LOG.info(`SAVING UPDATED course ${JSON.stringify(item)}`)
+      return res.redirect('/cour')
+    })
 })
 
 // delete by id
 api.post('/delete/:id', (req, res) => {
-  console.log(`You tried to access the delete page with an id of ${req.params.id}, ${req.baseUrl}`)
-  res.redirect('/cour')
+  LOG.info(`Handling DELETE request ${req}`)
+  const id = parseInt(req.params.id)
+  LOG.info(`Handling REMOVING ID=${id}`)
+  Model.remove({ _id: id }).setOptions({ single: true }).exec((err, deleted) => {
+    if (err) { return res.end(notfoundstring) }
+    console.log(`Permanently deleted item ${JSON.stringify(deleted)}`)
+    return res.redirect('/cour')
+  })
 })
 
 module.exports = api
