@@ -3,7 +3,11 @@
   "description": "Express web app using MVC (no views yet)",
   "version": "1.0.0",
   "author": "Denise Case",
+  "engines": {
+    "node": "^10"
+  },
   "dependencies": {
+    "@google-cloud/logging-winston": "^3.0.0",
     "config": "latest",
     "consolidate": "^0.15.1",
     "dotenv": "^8.2.0",

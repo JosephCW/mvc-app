@@ -9,6 +9,7 @@
  *  @requires config
  *  @requires express
  **/
+
 const config = require('config')
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
@@ -134,9 +135,9 @@ app.use((req, res) => { res.status(404).render('404.ejs') })
 
 // call app.listen to start server
 const host = app.get('host')
-const env = app.get('env')
+const env = isProduction ? 'production' : 'development'
 app.listen(process.env.PORT || 3004, () => {
-  console.log(`\nApp running at http://${host}:${port}/ in ${env} mode`)
+  console.log(`\nApp running at http://${host}:${port}/ with ${env} data`)
   console.log('Press CTRL-C to stop\n')
 })
 
