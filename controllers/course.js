@@ -8,7 +8,7 @@
 const express = require('express')
 const api = express.Router()
 const Model = require('../models/courses.js')
-const find = require('lodash.find')
+const LOG = require('../utils/logger.js')
 const notfoundstring = 'Could not find course with id='
 
 // RESPOND WITH JSON DATA  --------------------------------------------
