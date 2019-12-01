@@ -89,7 +89,7 @@ connection.once('open', function () {
   seed('instructors')
   seed('students')
   seed('courses')
-  // seed('orderlineitems')
+  seed('sections')
 
   connection.on('connected', function () {
     LOG.info('MongoDB event connected')
