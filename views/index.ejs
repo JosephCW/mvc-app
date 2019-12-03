@@ -11,7 +11,22 @@
           <li><a href="https://khart0012.github.io/about-me/">Kevin Hart</a></li>
           <li><a href="https://connorbeshears.github.io/about-me-20/">Connor Beshears</a></li>
         </ul>
+        <hr>
         <br>
+        <h3>Courses</h3>
+        <!-- group specific requirement -->
+        <ul>
+            <%
+            for (let i = 0; i < courses.length; i++) {%>
+               <li>
+                 <% let url = "/getSectionsFromCourses/" + i%>
+                  <a href="<%= url %>"><%=courses[i].Name%></a>
+                </li>
+            <%
+            }
+            %>
+        </ul>
+
         <hr>
         <br>
         <h4>Requests to GET JSON</h4>

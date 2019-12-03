@@ -8,6 +8,10 @@
  */
 
 const express = require('express')
+const LOG = require('../utils/logger.js')
+// to show courses on home page
+const Model = require('../models/courses.js')
+const ModelSections = require('../models/sections')
 
 console.log('START routing')
 const router = express.Router()
@@ -15,14 +19,20 @@ const router = express.Router()
 // Manage top-level request first
 router.get('/', (req, res, next) => {
   console.log('Request to /')
-  
-  res.render('index.ejs', {title : 'Express app'})
+  LOG.info(`Handling /findall ${req}`)
+  Model.find({}, (err, data) => {
+    res.locals.courses = data
+    console.log(`Found courses : ${res.locals.courses.length}`)
+    res.render('index.ejs', {title : 'Express app'})
+  })
 })
 
-// router.get('/index', (req, res, next) => {
-//   console.log('Request to /index')
-//   res.sendFile('index.html')
-// })
+router.get('/getSectionsFromCourses/:id', (req, res) => {
+  console.log('request to /getSectionsFromCourses/:id')
+  ModelSections.find({ CourseID: req.params.id}, (err, data) => {
+    res.json(data)
+  })
+})
 
 // Route requests that start with '/dev' to a particular controller
 router.use('/inst', require('../controllers/instructor.js'))
