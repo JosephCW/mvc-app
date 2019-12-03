@@ -7,7 +7,7 @@ Node.js and the Express web application that utilizes CRUD with Mongo Atlas.
 - [Joseph Watts](http://josephwatts.me/about-me/)
 - [Chase Smith](https://cweltonsmith.github.io/about-me/)
 - [Kevin Hart](https://khart0012.github.io/about-me/)
-- [Connor Beshears] (https://connorbeshears.github.io/about-me-20/)
+- [Connor Beshears](https://connorbeshears.github.io/about-me-20/)
 
 ## Links
 
